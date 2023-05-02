@@ -1,0 +1,261 @@
+:root{
+    /*variables de color que se usaran*/
+    --blanco:#ffffff;
+    --oscuro: #212121;
+    --primario:#ffc107;
+    --secundario: #0097a7;
+    --gris:#757575;
+
+}
+/*redimensonar la pagina*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;/*scrolll*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+body{
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco) 100%);
+    /*para el degradado de la pagina, degrada empezando con gris hasta blanco. De abajo hacia arriaba
+    si queremos de dereca a izquirda setia to left, se modificara de 0 a 100%*/
+}
+/*scroll*/
+.navegacion_principal,.servicio,.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop:always;
+}
+h1 {
+   
+    font-size: 3.8rem;
+}
+ h2 {
+    font-size: 2.5rem;
+ }   
+ h3 {
+    font-size: 1.5rem;
+ }
+  
+ h1, h2, h3{
+    text-align: center;
+ }
+
+.titulo span {
+font-size: 2rem;
+
+}
+
+.navegacion_principal{
+    /*centra el texto cuando se hace más pequeña la pagina*/
+    display:block;
+    text-align: center;
+    /*se cambia de posicion los links*/
+    display:flex;
+  
+    flex-direction: column;/*coloca en columna los botones al hacer la pagina pequeña*/
+    
+    
+}
+
+.navegacion_principal a {
+    color:var(--blanco);
+    text-decoration: none;
+font-size: 2rem;
+font-weight: 700;
+padding:1rem;
+}
+
+
+
+.contenedor{
+    /*centra, si llega a 120rem que se ajuste a 100%*/
+    max-width: 120rem;
+    margin:0 auto; 
+}
+
+
+.nav_bg { 
+    background-color: var(--secundario);
+}
+
+
+.navegacion_principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+/*importante para redimensionar la clase navegacion principal en una columna en cualquier dispositivo*/
+@media (min-width:768px){
+    .navegacion_principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.hero {
+    /*se coloca una imagen colocando el link*/
+    background-image: url(../hero.jpg);
+  background-repeat: no-repeat;/*para que no se repita la imagen al hacerla pequeña*/
+  background-size: cover;
+  height: 450px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 2rem;/*separacion*/
+
+ 
+}
+
+.contenido-hero {
+    position: absolute;
+   left:0;
+   top:0;
+   right:0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, .6);/*.6 es el porcentaje de transparencia*/
+   background-color: rgb(0 0 0 /70%); /* para opacar tambien podemos usar esto*/
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.contenido-hero h2,/* aplica diseño en un h2 o en un p*/
+.contenido-hero p{
+    color: var(--blanco)
+}
+.boton{ /*boton contactar*/
+    background-color: var(--secundario);/*color de fondo del color*/
+    color: var(--blanco);
+    padding: 1rem 3rem; /*engrosar hacia arriba y abajo, 3rem engrosar hacia la derecha e izq*/
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-decoration: none;/*quita la linea del enlace*/
+    text-transform: uppercase; /*coloca en mayuscula la letra*/
+    font-weight: bold; /*engrosar el texto*/
+    border-radius: .5rem;
+    width: 90%; /*90% de un tamaño de pantalla pequeña*/
+    text-align: center;
+    margin-top: 4rem;
+}
+/*media query para cierto de tamaño de pantalla se modifique*/
+@media(min-width:760px){
+    .boton{
+        width: auto;
+    }
+}
+.sombra{
+    /*cuadro de informacion con sombra se utiliza https://www.cssmatic.com/border-radius */
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    border: 12px solid #c7b9c7;
+    background-color: var(--blanco);/*fondo blanco*/
+    border-radius:1rem;
+}
+
+/*para que solo se ejecute despues de 768px*/
+@media(min-width:770px){
+    .servicios{
+        display:grid;/*hacer uso de columnas*/
+        grid-template-columns: 33.33% 33.33% 33.33%; /*3columnas de los servicios*/
+      /*  grid-template-columns: 1fr 1fr 1fr; tambien se puede hacer de esta manera*/
+       
+    }
+
+}
+.servicios .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);/**le da color de fondo*/
+    border-radius: 50%;/*redondear el cuadrado*/
+    display: flex; /*que sea circulo*/
+    justify-content: center;/*justificar de manera horizontal*/
+    align-items: center/*justificar de manera vertical*/
+}
+.servicio{
+    display:flex;
+    flex-direction: column;/*direccionar si utilizamos columnas o filas */
+    align-items: center;/*alinear de manera vertical*/
+
+}
+.servicio p{
+    line-height: 2;/*colocar espacios entre el texto*/   
+    margin-right: 2rem;/*espacio a la derecha del texto*/
+}
+.servicio h3{
+    color: var(--secundario);
+    font-size: normal;
+}.formulario{
+    background-color: var(--gris);
+    width:min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;/*grosor al cuadrado*/
+    border-radius: 1rem;/*borde redondo*/
+}
+.formulario fieldset{
+    border: none;/*quitar el borde*/
+}
+.formulario legend{
+    text-align:center;
+    font-size: 1.8rem;
+    text-transform: uppercase;/*conventir en mayusculas el texto */
+    font-weight: 700; /*700 o bold pone el texto en negrita*/
+    margin-bottom: 2rem;/*espacios entre el formulario*/
+    color:var(--primario);
+}
+.campo{
+    margin-bottom: 1rem;/*espacio entre cuadros del formulario */
+}
+.campo label{
+    color:var(--blanco);
+    font-weight: 700; /*pone en negrita pero de color blanco*/
+    margin-bottom: .5rem;/*espacio entre texto y cuadros*/
+    display: block;
+}
+.campo textarea{
+    height: 20rem;
+    
+}
+.input-text{
+    border: none;
+    width:100%;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    
+}
+/*mano en el boton enviar*/
+.boton:hover{
+    cursor: pointer;
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+.w-100{
+    border: none;
+    width: 100%;
+}
+@media(min-width:768px){
+    .w-100{
+        width: auto;
+    }
+}
+@media (min-width: 768px){
+    .contenedor-campo{
+        display: grid;/*movernos hacia abajo o arriba o derecha e izquei*/
+        grid-template-columns: 50% 50%; /*coloca en 2 columnas el form*/
+        column-gap: 1rem;/*espacio entre columnas*/
+        grid-template-rows: auto auto 20rem;
+    }
+}
+.campo:nth-child(3), /* |1|2| */
+.campo:nth-child(4){ /* |3|4|  necesitamos mover*/
+    grid-column: 1/3; /*abarcara la columna 1 a la 3 osea |1|2| (3 palitos)*/
+}
+.footer{
+    text-align: center;
+}
